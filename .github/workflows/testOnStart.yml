@@ -27,4 +27,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm install -g ts-node
+      - run: npm install
       - run: DISCORD_TOKEN=${{ secrets.DISCORDTOKEN }} npm run testOnStart
