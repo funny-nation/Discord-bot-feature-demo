@@ -4,9 +4,9 @@
   "description": "Discord bot feature demo",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/Bot.ts",
-    "start": "ts-node dist/Bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/index.ts",
+    "start": "NODE_ENV=production node dist/index.js",
+    "testOnStart": "ISTEST=true ts-node src/index.ts",
     "build": "tsc -p ."
   },
   "repository": {
@@ -23,7 +23,8 @@
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
     "discord-api-types": "^0.36.1",
-    "discord.js": "^13.8.1"
+    "discord.js": "^13.8.1",
+    "winston": "^3.8.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.3",
@@ -34,6 +35,7 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
+    "jest": "^28.1.3",
     "ts-node": "^10.8.2",
     "typescript": "^4.7.4"
   }
