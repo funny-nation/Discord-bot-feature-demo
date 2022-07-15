@@ -1,6 +1,7 @@
 import { SlashCommandBuilder, SlashCommandStringOption } from '@discordjs/builders'
 import { CommandInteraction, MessageActionRow, MessageButton } from 'discord.js'
-import { BaseCommand } from './BaseCommand'
+import { BaseCommand } from '../BaseCommand'
+import { addCommand } from '../commandsCollection'
 
 const buttonDemo: BaseCommand = {
   data: new SlashCommandBuilder()
@@ -81,4 +82,4 @@ const buttonDemo: BaseCommand = {
   }
 }
 
-export default buttonDemo
+addCommand(buttonDemo)

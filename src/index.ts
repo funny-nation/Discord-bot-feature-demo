@@ -4,7 +4,10 @@ import { commandsSetup } from './commands'
 import isTest from './isTest'
 import './events/buttons'
 import './events/commands'
+import './events/menus'
+import './events/modalSubmit'
 import logger from './logger'
+import { Interaction } from 'discord.js'
 
 client.once('ready', async () => {
   await commandsSetup()
@@ -17,4 +20,10 @@ client.once('ready', async () => {
 
 client.login(discordToken).catch((reason: string) => {
   logger.error(reason)
+})
+
+client.on('interactionCreate', async (interaction: Interaction) => {
+  if (!interaction.isUserContextMenu()) return
+
+  await interaction.reply(`You have echo ${interaction.targetUser.username}`)
 })
